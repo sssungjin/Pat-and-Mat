@@ -3,102 +3,45 @@
 <head>
     <link rel="stylesheet" href="Profile.css">
     <title>Profile Page</title>
-    <script>
-        function DropFile(dropAreaId, fileListId) {
-  let dropArea = document.getElementById(dropAreaId);
-  let fileList = document.getElementById(fileListId);
-
-  function preventDefaults(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
-  function highlight(e) {
-    preventDefaults(e);
-    dropArea.classList.add("highlight");
-  }
-
-  function unhighlight(e) {
-    preventDefaults(e);
-    dropArea.classList.remove("highlight");
-  }
-
-  function handleDrop(e) {
-    unhighlight(e);
-    let dt = e.dataTransfer;
-    let files = dt.files;
-
-    handleFiles(files);
-
-    const fileList = document.getElementById(fileListId);
-    if (fileList) {
-      fileList.scrollTo({ top: fileList.scrollHeight });
-    }
-  }
-
-  function handleFiles(files) {
-    files = [...files];
-    // files.forEach(uploadFile);
-    files.forEach(previewFile);
-  }
-
-  function previewFile(file) {
-    console.log(file);
-    renderFile(file);
-  }
-
-  function renderFile(file) {
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = function () {
-      let img = dropArea.getElementsByClassName("preview")[0];
-      img.src = reader.result;
-      img.style.display = "block";
-    };
-  }
-
-  dropArea.addEventListener("dragenter", highlight, false);
-  dropArea.addEventListener("dragover", highlight, false);
-  dropArea.addEventListener("dragleave", unhighlight, false);
-  dropArea.addEventListener("drop", handleDrop, false);
-
-  return {
-    handleFiles
-  };
-}
-
-const dropFile = new DropFile("drop-file", "files");
-    </script>
+    <meta charset="UTF-8">
 </head>
 
 <body>
     <form>
         <table>
-            <caption><h2>프로필 설정</h2></caption>
+            <caption>
+                <h2>프로필 설정</h2>
+            </caption>
             <tr>
                 <td>
                     프로필 사진
                 </td>
                 <td>
-                    <div id="root">
-                        <div class="contents">
-                          <div class="upload-box">
-                            <div id="drop-file" class="drag-file">
-                              <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" class="image">
-                              <img src="" alt="미리보기 이미지" class="preview">
-                            </div>
-                            <label class="file-label" for="chooseFile">Upload</label>
-                            <input class="file" id="chooseFile" type="file" onchange="dropFile.handleFiles(this.files)" accept="image/png, image/jpeg, image/gif">
-                          </div>
-                        </div>
-                      </div>
+                    <div id="image_container"></div>
+                    <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
+                    <!-- <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" id="image_container" class="image"> -->
+                    <script>
+                        function setThumbnail(event) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (event) {
+                                var img = document.createElement("img");
+                                img.setAttribute("src", event.target.result);
+                                img.style.width = '150px';
+                                img.style.height = '150px';
+                                document.querySelector("div#image_container").appendChild(img);
+                            };
+
+                            reader.readAsDataURL(event.target.files[0]);
+                        }
+                    </script>
                 </td>
             </tr>
             <tr>
                 <td>매칭 정보 등록</td>
-                <td> 
-                    <input type="radio" name="match_info" value="Y"/>동의
-                    <input type="radio" name="match_info" value="N"/>비동의
+                <td>
+                    <input type="radio" name="match_info" value="Y" />동의
+                    <input type="radio" name="match_info" value="N" />비동의
                 </td>
             </tr>
             <tr>
@@ -106,7 +49,7 @@ const dropFile = new DropFile("drop-file", "files");
                     키
                 </td>
                 <td>
-                    <input type="text" name="height"/>
+                    <input type="text" name="height" />
                 </td>
             </tr>
             <tr>
@@ -114,7 +57,7 @@ const dropFile = new DropFile("drop-file", "files");
                     몸무게
                 </td>
                 <td>
-                    <input tyep="text" name="weight"/>
+                    <input tyep="text" name="weight" />
                 </td>
             </tr>
             <tr>
@@ -122,7 +65,7 @@ const dropFile = new DropFile("drop-file", "files");
                     취미
                 </td>
                 <td>
-                    <input type="text" name="hobby"/>
+                    <input type="text" name="hobby" />
                 </td>
             </tr>
             <tr>
@@ -156,15 +99,15 @@ const dropFile = new DropFile("drop-file", "files");
                     거주지
                 </td>
                 <td>
-                    <input tyep="text" name="residence" placeholder="시/구/동 을 입력해주세요."/>
+                    <input tyep="text" name="residence" placeholder="시/구/동 을 입력해주세요." />
                 </td>
             </tr>
             <tr>
                 <td>
-                본인소개 한마디 
+                    본인소개 한마디
                 </td>
                 <td>
-                <input type="text" name="introduction">
+                    <input type="text" name="introduction">
                 </td>
             </tr>
         </table>
