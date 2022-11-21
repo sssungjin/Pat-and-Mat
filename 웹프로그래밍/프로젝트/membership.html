@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>회원가입</title>
+        <link href="membership.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>이름</td>
+                    <td colspan="2"><input type="text" name="user-name"></td>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td colspan="2"><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td colspan="2"><input type="text" name="pw"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td colspan="2"><input type="text" name="pw-check"></td>
+                </tr>
+                <tr>
+                    <td>주민번호</td>
+                    <td><input type="text" name="rrn"></td>
+                    <td>- <input type="text" name="gender" size="1px">******</td>
+                </tr>
+                <tr>
+                    <td>전화번호</td>
+                    <td colspan="2"><input type="text" name="phone-number"></td>
+                </tr>
+                <tr>
+                    <td>매칭 시 연락수단</td>
+                    <td colspan="2"><input type="text" name="virtual-number"></td>
+                </tr>
+                <tr>
+                    <td>대학교</td>
+                    <td colspan="2">
+                        <select name="univ">
+                            <option value="dgu">동국대학교</option>
+                            <option value="kku">건국대학교</option>
+                            <option value="hiu">홍익대학교</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>학교 웹메일</td>
+                    <td><input type="text" name="web-mail"> @</td>
+                    <td>
+                        <select name="email">
+                            <option value="dgu-web">dgu.edu</option>
+                            <option value="kku-web">konkuk.ac.kr</option>
+                            <option value="hiu-web">hi.ac.kr</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="인증하기"></td>
+                </tr>
+            </table>
+            <div id="complete">개인 정보 제공 동의 <input type="checkbox" name="agree"> <input type="submit" value="회원가입" name="member-join"></p>
+        </div>
+    </body>
+</html>
