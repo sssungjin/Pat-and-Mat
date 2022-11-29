@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 어느 기기에서도 맞춤으로 보이는 반응형 웹에 사용되는 기본 Meta Tag -->
+<meta name="viewport" content="width-device-width" content="initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<title>회원가입</title>
+<script>
+	function checkInfo() {
+		var pw = document.registerForm;
+		if(pw.userPW2.value != pw.userPW.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			pw.userPW.focus();
+			return false;	
+		}
+		if(isNaN(pw.userRRN.value) || isNaN(pw.userGender.value)) {
+			alert("주민번호를 숫자로 입력하세요.");
+			pw.userRRN.focus();
+			return false;
+		}
+		if(pw.userRRN.value.length != 6) {
+			alert("주민번호 앞 6자리를 입력하세요.");
+			pw.userRRN.focus();
+			return false;
+		}
+ 		if(!(pw.userGender.value == '1' || pw.userGender.value == '2' || pw.userGender.value == '3' || pw.userGender.value == '4')) {
+			alert("올바른 주민번호 뒷자리를 입력하세요.");
+			pw.userGender.focus();
+			return false;
+		} 
+		
+		
+		else return true;
+	}
+	
+</script>
+</head>
+<body>
+	<!-- 전반적인 웹사이트 구성을 나타내는 네비게이션 -->
+	<nav class="navbar navbar-default">
+	</nav>
+
+	<div class="container">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<div class="jumbotron" style="padding-top: 20px">
+				<form name="registerForm" method="post" action="RegisterAction.jsp" onsubmit="return checkInfo()">
+					<h3 style="text-align: center;">회원가입</h3>
+
+
+					<label for="userName">이름</label>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="이름"
+							name="userName" maxlength="20" required/>
+					</div>
+					<label for="userNick">닉네임</label>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="닉네임"
+							name="userNick" maxlength="20" required/>
+					</div>
+					<label for="userNick">아이디</label>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="아이디"
+							name="userID" maxlength="20" required/>
+					</div>
+					<label for="userPW">비밀번호</label>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="비밀번호"
+							name="userPW" maxlength="20" required/>
+					</div>
+					<label for="userPW2">비밀번호 확인</label>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="비밀번호 확인"
+							name="userPW2" maxlength="20" required/>
+					</div>
+					<label for="userPW">주민등록번호</label>
+					<div class="form-group">
+						<div class="col-xs-6">
+							<input type="text" class="form-control" placeholder="6자리"
+								name="userRRN" maxlength="6" size="6px" required/>
+						</div>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" size="1px"
+								name="userGender" maxlength="1" required/>
+						</div>
+					</div>
+<!-- 					<br> <br> <label for="userPH">전화번호</label>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="전화번호"
+							name="userPH" maxlength="20" required/>
+					</div> -->
+					<br><br>
+					<label for="userVN">매칭 시 연락수단</label>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="인스타/페이스북/카카오톡"
+							name="userVN" maxlength="20" required/>
+					</div>
+					<label for="userUniv">대학교</label>
+					<div class="form-group">
+						<select name="userUniv">
+							<option value="dgu">동국대학교</option>
+							<option value="kku">건국대학교</option>
+							<option value="hiu">홍익대학교</option>
+						</select>
+					</div>
+					<label for="userUniv">학교 웹메일</label>
+					<div class="form-group">
+					
+						<input type="text" name="web-mail" size="20px"> @ <br><br><select
+							name="userEmail">
+							<option value="dgu-web">dgu.edu</option>
+							<option value="kku-web">konkuk.ac.kr</option>
+							<option value="hiu-web">hi.ac.kr</option>
+						</select>
+
+					</div>
+					<button type="button"
+						onclick="window.open('Certification.jsp', 'certifi', 'width=500, height=500')">인증하기</button>
+					<br> <br>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="aggrement"
+							required> <label class="custom-control-label"
+							for="aggrement" >개인정보 수집 및 이용에 동의합니다.</label>
+					</div>
+					<input type="submit" class="btn btn-warning form-control"
+						value="회원가입" />
+				</form>
+			</div>
+		</div>
+		<div class="col-lg-4"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>

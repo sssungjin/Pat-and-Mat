@@ -1,0 +1,50 @@
+form {
+    margin-top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:350px;
+    background-color: rgb(255, 235, 157);
+    border-radius: 10px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+thead {
+    font-family: "a드림고딕4";
+}
+
+tr {
+    height: 40px;
+}
+
+td {
+    width:90px;
+}
+
+tfoot {
+    text-align: center;
+    font-family: "a드림고딕6";
+}
+
+input[type=text], input[type=password] {
+    height:20px;
+    font-family: "a드림고딕2";
+}
+
+input[type=submit] {
+    font-family: "a드림고딕6";
+    width:300px;
+    height:30px;
+    border: none;
+    background-color: none;
+}
+
+a {
+    color: rgb(21, 20, 20);
+    text-decoration: none;
+}
