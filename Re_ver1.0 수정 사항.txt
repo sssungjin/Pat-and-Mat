@@ -1,0 +1,13 @@
+수정 사항
+
+boardRead, boardSite 조회수 추가
+boardSiteDAO -> 조회수
+
+이미지 업로드 및 수정
+단 수정 시 파일 선택 안하면 이미지 사라짐
+
+boardWrite.jsp
+writeAction.jsp
+boardModify.jsp
+modifyAction.jsp
+
